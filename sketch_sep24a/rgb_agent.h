@@ -20,9 +20,6 @@ using namespace MAES;
 /** Set the pins of RGB leds, the order is R,G,B */
 #define RGB_PINS (uint8_t[3]){12, 13, 11}
 
-/**
- * @name Defines the hexadecimal value of the color
- */
 #define RED           0xFF0202
 #define ORANGE        0xFFA500
 #define YELLOW        0xFFFF0A
