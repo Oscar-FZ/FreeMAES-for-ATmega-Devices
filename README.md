@@ -82,7 +82,7 @@ If you plan to implement a more complex MAS, consider using devices with larger 
 |---------|----------------|------|------|------|------|
 | Arduino UNO Mini | ATmega328P | 32kB | 2kB | 1kB | - |
 | Arduino UNO Rev3 | ATmega328P | 32kB | 2kB | 1kB | - |
-| Arduino UNO WiFi Rev2 | ATmega4809 | 48kB | 6kB | 256B | - |
+| Arduino UNO WiFi Rev2 | ATmega4809 | 48kB | 6kB | 256B | ✅ |
 | Arduino Leonardo | ATmega32u4 | 32kB | 2.5kB	 | 1kB | - |
 | Arduino Mega 2560 Rev3 | ATmega2560 | 256kB | 8kB | 4kB | ✅ |
 | Arduino Micro | ATmega32u4 | 32kB | 2.5kB | 1kB | - |
