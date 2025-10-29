@@ -3,7 +3,7 @@
 
 ---
 
-## 🧩 Overview
+##  Overview
 
 This project provides an **adaptation of the [FreeMAES](https://github.com/DRoMarin/FreeMAES.git)** multi-agent framework to **Microchip ATmega-based devices**, enabling distributed agent-based applications on low-resource embedded platforms.
 
@@ -56,17 +56,17 @@ The MAS consists of **nine agents**, each responsible for a specific subsystem:
 
 | Agent Function | Source Files |
 |----------------|---------------|
-| 🛞 Wheel Motor Control Agent | `car_control_agent.cpp / .h` |
-| 💡 RGB Lights Control Agent | `rgb_agent.cpp / .h` |
-| 🎯 Servo Control Agent | `soft_servo_agent.cpp / .h` |
-| 🔦 Infrared Sensor Agent | `infrared_agent.cpp / .h` |
-| 📡 Ultrasonic Sensor Agent | `ultrasonic_agent.cpp / .h` |
-| 🧭 Object Following Mode Agent | `following_mode_agent.cpp / .h` |
-| 🚧 Obstacle Avoidance Mode Agent | `avoidance_mode_agent.cpp / .h` |
-| ⚙️ Mode Handler Agent | `mode_handler_agent.cpp / .h` |
-| 🌐 WiFi Communications Agent | `wifi_agent.cpp / .h` |
+| Wheel Motor Control Agent | `car_control_agent.cpp / .h` |
+| RGB Lights Control Agent | `rgb_agent.cpp / .h` |
+| Servo Control Agent | `soft_servo_agent.cpp / .h` |
+| Infrared Sensor Agent | `infrared_agent.cpp / .h` |
+| Ultrasonic Sensor Agent | `ultrasonic_agent.cpp / .h` |
+| Object Following Mode Agent | `following_mode_agent.cpp / .h` |
+| Obstacle Avoidance Mode Agent | `avoidance_mode_agent.cpp / .h` |
+| Mode Handler Agent | `mode_handler_agent.cpp / .h` |
+| WiFi Communications Agent | `wifi_agent.cpp / .h` |
 
-Each agent is implemented as a **FreeMAES agent task** running on **FreeRTOS**, communicating through message passing and synchronized via the Agent Platform (`Agent_Platform` class).
+Each agent is implemented as a **FreeMAES agent task** running on **FreeRTOS**.
 
 ---
 
@@ -78,11 +78,14 @@ Initially, the GalaxyRVR MAS was implemented on an **Arduino Uno R3 (2 kB SRAM)*
 
 If you plan to implement a more complex MAS, consider using devices with larger SRAM:
 
-| Device | SRAM | Recommendation |
-|---------|------|----------------|
-| Arduino Uno R3 | 2 kB | Basic MAS (1–2 agents) |
-| Arduino Uno WiFi Rev2 | 6 kB | Medium MAS (3–5 agents) |
-| Arduino Mega 2560 | 8 kB | Full MAS (8–9 agents) ✅ |
+| Device | Microcontroller | Flash | SRAM | EEPROM | Recommendation |
+|---------|----------------|------|------|------|------|
+| Arduino UNO Mini | ATmega328P | 32kB | 2kB | 1kB | - |
+| Arduino UNO Rev3 | ATmega328P | 32kB | 2kB | 1kB | - |
+| Arduino UNO WiFi Rev2 | ATmega4809 | 48kB | 6kB | 256B | - |
+| Arduino Leonardo | ATmega32u4 | 32kB | 2.5kB	 | 1kB | - |
+| Arduino Mega 2560 Rev3 | ATmega2560 | 256kB | 8kB | 4kB | - |
+| Arduino Micro | ATmega32u4 | 32kB | 2.5kB | 1kB | ✅ |
 
 ---
 
