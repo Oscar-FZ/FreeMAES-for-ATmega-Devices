@@ -3,40 +3,26 @@
 
 
 // Instancia global del agente
-Agent RGB_Control("RGB Agent", 2, 99);
+Agent RGB_Control("RGB Control Agent", 1, 192);
 
 /* Comportamiento del agente RGB */
 class rgbBehaviour : public CyclicBehaviour {
 public:
   void setup() override {
     for (uint8_t i = 0; i < 3; i++) {
-      SoftPWMSet(RGB_PINS[i], 0);
-      SoftPWMSetFadeTime(RGB_PINS[i], 100, 100);
+      pinMode(RGB_PINS[i], OUTPUT);
+      analogWrite(RGB_PINS[i], 0);
     }
   }
 
   void action() override {
+    //Serial.print(F("RGB Control Agent | Watermark: "));
+		//Serial.println(uxTaskGetStackHighWaterMark(NULL));
     rgbControlPackage* central_rgb_pckg;
     msg.receive(portMAX_DELAY);
 
     if (msg.get_msg_type() == INFORM) {
-      //Serial.println("Mensaje recibido:");
       central_rgb_pckg = (rgbControlPackage*) msg.get_msg_content();
-
-      // Serial.print("Instruccion: ");
-      // Serial.println(central_rgb_pckg->instruction);
-
-      // Serial.print(" | Color: 0x");
-      // Serial.println(central_rgb_pckg->color, HEX);
-
-      // Serial.print(" | Red: ");
-      // Serial.println(central_rgb_pckg->red);
-
-      // Serial.print(" | Green: ");
-      // Serial.println(central_rgb_pckg->green);
-
-      // Serial.print(" | Blue: ");
-      // Serial.println(central_rgb_pckg->blue);
 
       switch (central_rgb_pckg->instruction) 
       {
@@ -54,15 +40,15 @@ public:
           g = int(g * G_OFFSET);
           b = int(b * B_OFFSET);
 
-          SoftPWMSet(RGB_PINS[0], r);
-          SoftPWMSet(RGB_PINS[1], g);
-          SoftPWMSet(RGB_PINS[2], b);
+          analogWrite(RGB_PINS[0], r);
+          analogWrite(RGB_PINS[1], g);
+          analogWrite(RGB_PINS[2], b);
           break;
 
         case RGB_Off:
           //Serial.println("-- Off --");
           for (uint8_t i = 0; i < 3; i++) {
-            SoftPWMSet(RGB_PINS[i], 0);
+            analogWrite(RGB_PINS[i], 0);
           }
           break;
 
