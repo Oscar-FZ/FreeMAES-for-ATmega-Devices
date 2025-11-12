@@ -79,7 +79,7 @@ The folder includes three different projects, each with two versions:
 | **Sender Receiver** | `sender_receiver_tasks.ino` | `sender_receiver_agents.ino` | Compares message passing and synchronization efficiency between both systems. |
 | **Telemetry** | `telemetry_tasks.ino` | `telemetry_agents.ino` | Simulates sensor data transmission and logging in both paradigms. |
 
-These examples were used for analytical testing of **execution behavior**, **stack usage**, and **system responsiveness**, highlighting the advantages of the FreeMAES agent abstraction over standard FreeRTOS tasks in modular embedded architectures.
+These examples were used for analytical testing of **program size**, **stack usage**, and **CPU usage**, highlighting the advantages of the FreeMAES agent abstraction over standard FreeRTOS tasks in modular embedded architectures.
 
 ---
 
